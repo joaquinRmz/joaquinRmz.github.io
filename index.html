@@ -3,6 +3,17 @@
 
 <head>
     <title>My First HTML Page</title>
+    <script>
+        // This script listens for the 'message' event and updates the page content
+        document.addEventListener('message', function (event) {
+            const data = event.detail;
+            const token = data.token;
+            const cardHolder = data.cardHolder;
+
+            document.body.innerHTML += `<p>Token: ${token}</p>`;
+            document.body.innerHTML += `<p>Card Holder: ${cardHolder}</p>`;
+        });
+    </script>
 </head>
 
 <body>
