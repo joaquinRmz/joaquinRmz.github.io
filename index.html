@@ -3,22 +3,26 @@
 
 <head>
     <title>My First HTML Page</title>
-    <script>
-        // This script listens for the 'message' event and updates the page content
-        document.addEventListener('message', function (event) {
-            const data = event.detail;
-            const token = data.token;
-            const cardHolder = data.cardHolder;
-
-            document.body.innerHTML += `<p>Token: ${token}</p>`;
-            document.body.innerHTML += `<p>Card Holder: ${cardHolder}</p>`;
-        });
-    </script>
 </head>
 
 <body>
     <h1>Hello, World, is this thing working?</h1>
     <p>This is my first HTML page created with VSCode.</p>
+    <!-- Placeholder elements for token and card holder -->
+    <p id="token">Token: Waiting for token...</p>
+    <p id="cardHolder">Card Holder: Waiting for card holder...</p>
+
+    <script>
+        document.addEventListener('message', function (event) {
+            const data = event.detail;
+            const token = data.token;
+            const cardHolder = data.cardHolder;
+
+            // Update the placeholders with the actual data
+            document.getElementById('token').textContent = `Token: ${token}`;
+            document.getElementById('cardHolder').textContent = `Card Holder: ${cardHolder}`;
+        });
+</script>
 </body>
 
 </html>
